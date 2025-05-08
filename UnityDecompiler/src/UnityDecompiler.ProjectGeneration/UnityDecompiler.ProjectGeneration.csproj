@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\UnityDecompiler.Core\UnityDecompiler.Core.csproj" />
+    <ProjectReference Include="..\UnityDecompiler.Decompilers\UnityDecompiler.Decompilers.csproj" />
+    <ProjectReference Include="..\UnityDecompiler.AssetExtractors\UnityDecompiler.AssetExtractors.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+</Project>
