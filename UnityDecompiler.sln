@@ -5,15 +5,15 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{1E8F5E75-13EA-4D12-850B-396C35A00774}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnityDecompiler.Core", "src\UnityDecompiler.Core\UnityDecompiler.Core.csproj", "{8BAD0D7E-A50D-49FC-92E6-CC79E5F69443}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnityDecompiler.Core", "UnityDecompiler\src\UnityDecompiler.Core\UnityDecompiler.Core.csproj", "{8BAD0D7E-A50D-49FC-92E6-CC79E5F69443}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnityDecompiler.Decompilers", "src\UnityDecompiler.Decompilers\UnityDecompiler.Decompilers.csproj", "{251EFD7D-D9F1-4E77-B371-62A13C4AD1C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnityDecompiler.Decompilers", "UnityDecompiler\src\UnityDecompiler.Decompilers\UnityDecompiler.Decompilers.csproj", "{251EFD7D-D9F1-4E77-B371-62A13C4AD1C7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnityDecompiler.AssetExtractors", "src\UnityDecompiler.AssetExtractors\UnityDecompiler.AssetExtractors.csproj", "{B71DC64E-2A36-48ED-98EC-3AFCCC71EB03}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnityDecompiler.AssetExtractors", "UnityDecompiler\src\UnityDecompiler.AssetExtractors\UnityDecompiler.AssetExtractors.csproj", "{B71DC64E-2A36-48ED-98EC-3AFCCC71EB03}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnityDecompiler.ProjectGeneration", "src\UnityDecompiler.ProjectGeneration\UnityDecompiler.ProjectGeneration.csproj", "{D63414D5-B5F0-4824-B073-8339DEDE3CD9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnityDecompiler.ProjectGeneration", "UnityDecompiler\src\UnityDecompiler.ProjectGeneration\UnityDecompiler.ProjectGeneration.csproj", "{D63414D5-B5F0-4824-B073-8339DEDE3CD9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnityDecompiler.UI", "src\UnityDecompiler.UI\UnityDecompiler.UI.csproj", "{7DA09334-3569-4149-A7F7-DBA45103F290}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnityDecompiler.UI", "UnityDecompiler\src\UnityDecompiler.UI\UnityDecompiler.UI.csproj", "{7DA09334-3569-4149-A7F7-DBA45103F290}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnityDecompiler", "UnityDecompiler", "{B90E01AB-99E0-49A8-BDA7-16A91B578D2D}"
 EndProject

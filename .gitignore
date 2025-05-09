@@ -1,4 +1,28 @@
+# .NET Core / C# Ignored Files
+
+# User-specific files
 .vs/
 
+# Build directories
 **/bin/
 **/obj/
+**/out/
+
+# Astro | Electron / build Ignored directories
+
+# Node modules
+node_modules/
+npm-debug.log
+
+# Electron specific
+dist/
+release/
+.squirrel/
+
+# Astro build output
+/.astro/
+*.astro
+
+# Backup files
+*.bak
+
