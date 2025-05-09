@@ -2,6 +2,7 @@
 
 # User-specific files
 .vs/
+.vscode/
 
 # Build directories
 **/bin/
@@ -20,9 +21,11 @@ release/
 .squirrel/
 
 # Astro build output
-/.astro/
-*.astro
+**.astro/
 
 # Backup files
 *.bak
 
+# environment variables
+.env
+.env.production
