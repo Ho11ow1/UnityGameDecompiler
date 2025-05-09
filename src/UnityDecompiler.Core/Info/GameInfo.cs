@@ -12,62 +12,59 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-
-
-
 using System;
 using System.Collections.Generic;
 
 #pragma warning disable
-public class GameInfo
+public static class GameInfo
 {
     /// <summary>
     /// Gets or sets the name of the game.
     /// </summary>
-    public string GameName { get; set; }
+    public static string gameName { get; set; }
 
     /// <summary>
     /// Gets or sets the detected Unity version.
     /// </summary>
-    public Version UnityVersion { get; set; }
+    public static string unityVersion { get; set; }
 
     /// <summary>
     /// Gets or sets a value indicating whether the game uses IL2CPP.
     /// </summary>
-    public bool IsIL2CPP { get; set; }
+    public static bool isIL2CPP { get; set; }
 
     /// <summary>
     /// Gets or sets a value indicating whether the game is obfuscated.
     /// </summary>
-    public bool IsObfuscated { get; set; }
+    public static bool isObfuscated { get; set; }
 
     /// <summary>
     /// Gets or sets the path to the game's main data directory.
     /// </summary>
-    public string DataPath { get; set; }
+    public static string dataPath { get; set; }
 
     /// <summary>
     /// Gets or sets the path to the game's managed assemblies.
     /// </summary>
-    public string ManagedAssembliesPath { get; set; }
+    public static string managedAssembliesPath { get; set; }
 
     /// <summary>
     /// Gets or sets the detected platform the game was built for.
     /// </summary>
-    public GamePlatform Platform { get; set; }
+    public static GamePlatform platform { get; set; }
 
     /// <summary>
     /// Gets or sets additional platform-specific information.
     /// </summary>
-    public Dictionary<string, string> PlatformSpecificInfo { get; set; } = new Dictionary<string, string>();
+    public static Dictionary<string, string> platformSpecificInfo { get; set; } = new Dictionary<string, string>();
 
     /// <summary>
     /// Returns a string representation of the game information.
     /// </summary>
     /// <returns>A string representation of the game information.</returns>
-    public override string ToString()
+    public static string ToString() // Cannot set override as static
     {
-        return $"{GameName} (Unity {UnityVersion}, {(IsIL2CPP ? "IL2CPP" : "Mono")}, {Platform})";
+        return $"{gameName} (Unity {unityVersion}, {(isIL2CPP ? "IL2CPP" : "Mono")}, {platform})";
     }
 }
 

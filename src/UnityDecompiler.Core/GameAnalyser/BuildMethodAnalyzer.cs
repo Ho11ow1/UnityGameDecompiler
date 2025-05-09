@@ -12,4 +12,25 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
+using System;
+using System.IO;
+using System.Text;
 
+#pragma warning disable
+public class BuildMethodAnalyzer
+{
+    public string GetBuildMethod(string gameFolder)
+    {
+        string gameAssemblyPath = PathUtils.SetGameAssemblyPath(gameFolder);
+        string metadataPath = PathUtils.SetMetadataPath(gameFolder);
+
+        if (File.Exists(gameAssemblyPath) && File.Exists(metadataPath))
+        {
+            GameInfo.isIL2CPP = true;
+        }
+
+        return GameInfo.isIL2CPP ? "IL2CPP" : "Mono";
+    }
+
+
+}

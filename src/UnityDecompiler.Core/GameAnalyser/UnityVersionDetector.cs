@@ -12,4 +12,38 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
+using System;
+using System.IO;
+using System.Text;
+using System.Text.RegularExpressions;
 
+#pragma warning disable
+public class VersionDetector
+{
+    public string GetUnityVersion(string gameFolder)
+    {
+        string globalGameManagerPath = PathUtils.SetGlobalGameManagerPath(gameFolder);
+
+        if (!File.Exists(globalGameManagerPath))
+        {
+            throw new Exception("GlobalGameManager file not found.");
+        }
+
+        byte[] buffer = new byte[512];
+        using (var fs = new FileStream(globalGameManagerPath, FileMode.Open, FileAccess.Read))
+        {
+            fs.Read(buffer, 0, buffer.Length);
+        }
+
+        string content = System.Text.Encoding.ASCII.GetString(buffer);
+        Match match = Regex.Match(content, @"20\d{2}\.\d+\.\d+[a-z]\d+");
+
+        if (match.Success)
+        {
+            GameInfo.unityVersion = match.Value;
+            return GameInfo.unityVersion;
+        }
+
+        return null;
+    }
+}

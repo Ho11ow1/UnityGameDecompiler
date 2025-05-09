@@ -12,42 +12,39 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-
-
-
 using System;
 using System.Collections.Generic;
 
 #pragma warning disable
-public class AssemblyInfo
+public static class AssemblyInfo
 {
     /// <summary>
     /// Gets or sets the name of the assembly.
     /// </summary>
-    public string Name { get; set; }
+    public static string name { get; set; }
 
     /// <summary>
     /// Gets or sets the path to the assembly file.
     /// </summary>
-    public string Path { get; set; }
+    public static string path { get; set; }
 
     /// <summary>
     /// Gets or sets a value indicating whether this is a game assembly or a Unity/system assembly.
     /// </summary>
-    public bool IsGameAssembly { get; set; }
+    public static bool isGameAssembly { get; set; }
 
     /// <summary>
     /// Gets or sets a value indicating whether the assembly is obfuscated.
     /// </summary>
-    public bool IsObfuscated { get; set; }
+    public static bool isObfuscated { get; set; }
 
     /// <summary>
     /// Gets or sets the list of namespaces in the assembly.
     /// </summary>
-    public List<string> Namespaces { get; set; } = new List<string>();
+    public static List<string> namespaces { get; set; } = new List<string>();
 
     /// <summary>
     /// Gets or sets the list of references to other assemblies.
     /// </summary>
-    public List<string> References { get; set; } = new List<string>();
+    public static List<string> references { get; set; } = new List<string>();
 }

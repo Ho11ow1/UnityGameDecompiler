@@ -12,4 +12,26 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
+using System;
+using System.IO;
 
+#pragma warning disable
+public static class PathUtils
+{
+    public static string SetGlobalGameManagerPath(string path)
+    {
+        return Path.Combine(path, "Game_Data", "globalgamemanager");
+    }
+
+    public static string SetGameAssemblyPath(string path)
+    {
+        return Path.Combine(path, "GameAssembly.dll");
+    }
+
+    public static string SetMetadataPath(string path)
+    {
+        return Path.Combine(path, "Game_Data", "il2cpp_data", "Metadata", "global-metadata.dat");
+    }
+
+
+}

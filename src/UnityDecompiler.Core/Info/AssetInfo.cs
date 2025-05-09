@@ -12,44 +12,41 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-
-
-
 using System;
 using System.Collections.Generic;
 
 #pragma warning disable
-public class AssetInfo
+public static class AssetInfo
 {
     /// <summary>
     /// Gets or sets the name of the asset.
     /// </summary>
-    public string Name { get; set; }
+    public static string name { get; set; }
 
     /// <summary>
     /// Gets or sets the path to the asset file.
     /// </summary>
-    public string Path { get; set; }
+    public static string path { get; set; }
 
     /// <summary>
     /// Gets or sets the type of the asset.
     /// </summary>
-    public AssetType Type { get; set; }
+    public static AssetType type { get; set; }
 
     /// <summary>
     /// Gets or sets a value indicating whether the asset is extracted from an asset bundle.
     /// </summary>
-    public bool IsFromAssetBundle { get; set; }
+    public static bool isFromAssetBundle { get; set; }
 
     /// <summary>
     /// Gets or sets the name of the asset bundle this asset is from (if applicable).
     /// </summary>
-    public string AssetBundleName { get; set; }
+    public static string assetBundleName { get; set; }
 
     /// <summary>
     /// Gets or sets the output path for the extracted asset.
     /// </summary>
-    public string OutputPath { get; set; }
+    public static string outputPath { get; set; }
 }
 
 public enum AssetType
