@@ -2,6 +2,7 @@
 
 # User-specific files
 .vs/
+.vscode/
 
 # Build directories
 **/bin/
@@ -26,3 +27,6 @@ release/
 # Backup files
 *.bak
 
+# environment variables
+.env
+.env.production
