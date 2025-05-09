@@ -21,8 +21,7 @@ release/
 .squirrel/
 
 # Astro build output
-/.astro/
-*.astro
+**.astro/
 
 # Backup files
 *.bak
