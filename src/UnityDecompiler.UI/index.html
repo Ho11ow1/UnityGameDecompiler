@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <title>Hello from Electron renderer!</title>
+
+        <link rel="stylesheet" href="src/styles/style.css" />
+
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com;" />
+        <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'" />
+        <meta charset="UTF-8" />
+  </head>
+    <body>
+        <section class="file-select container wrapper flex flex-col">
+            <button id="select-file-btn" type="button">Open File Dialog (Electron)</button>
+            <div id="file-info" class="container flex flex-col">
+                <p id="file-name">File name:<br/><span></span></p>
+                <p id="file-directory">Directory:<br/><span></span></p>
+                <p id="file-path">Absolute path:<br/><span></span></p>
+            </div>
+
+            <!-- <button id="decompile-btn" type="button">Decompile</button>  TODO-->
+        </section>
+        <script src="src/js/renderer.js"></script>
+    </body>
+</html>

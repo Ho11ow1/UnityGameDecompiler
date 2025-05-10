@@ -1,34 +1,14 @@
 {
-  "name": "unitydecompiler-ui",
-  "type": "module",
-  "version": "1.0.0",
-  "main": "electron/main.js",
-  "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro",
-    "electron:dev": "concurrently \"npm run dev\" \"wait-on http://localhost:4321 && electron .\"",
-    "electron:build": "npm run build && electron-builder",
-    "electron:preview": "npm run build && electron ."
-  },
-  "dependencies": {
-    "astro": "^5.7.12"
-  },
-  "devDependencies": {
-    "concurrently": "^8.2.2",
-    "electron": "^30.0.0",
-    "electron-builder": "^24.9.1"
-  },
-  "build": {
-    "appId": "com.unitydecompiler.app",
-    "productName": "Unity Decompiler",
-    "directories": {
-      "output": "dist-electron"
-    },
-    "files": [
-      "dist/**/*",
-      "electron/**/*"
-    ]
-  }
+	"name": "unitydecompiler.ui",
+	"version": "1.0.0",
+	"description": "Unity game decompiler GUI",
+	"main": "electron/main.js",
+	"scripts": {
+		"start": "electron .",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "Hollow1",
+	"devDependencies": {
+		"electron": "^36.2.0"
+	}
 }

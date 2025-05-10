@@ -1,0 +1,196 @@
+/*=============== IMPORTS ===============*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap'); /* Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Love+Light&family=Style+Script&display=swap'); /* Love light, Style script */
+
+:root{
+    /* Colour Modes RGB(red, green, glue) 32-bit(255)*/
+    --vshojo-pink: #F50F75;
+    --white: #FFFFFF;
+    --dark-white:#F2F2F2;
+    --black: #000000;
+    --live: #FF0000;
+    --vshojo-pink: #F50F75;
+    --vshojo-dark-gray: #2A2A2A;
+    --vshojo-light-gray: #707070;
+
+    --border-radius:30px;
+
+    /*========== Font and Typography ==========*/
+    --body-font:"Poppins", sans-serif;
+    --quote-font:"Style script";
+    --font-h1:2rem;
+    --font-h2:1.65rem;
+    --font-h3:1.1rem;
+    --quote-font-size:1.5rem;
+
+    /*========== Font Weight ==========*/
+    --font-bold:800;
+    --font-semibold:700;
+    --font-normal:500;
+
+    /*========== Z-index ==========*/
+    --z-popup:10;
+    --z-fixed:100;
+}
+
+/*=============== BASE ===============*/
+*,
+*::before,
+*::after{
+    box-sizing:border-box;
+    padding:0;
+    margin:0;
+    transition:transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), all 0.3s ease;
+	/* UNCOMMENT FOR OVERFLOW DEBUGGING */
+    /* outline:2px solid rgb(0 255 0); */
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:var(--body-font);
+}
+
+/*=============== TYPOGRAPHY ===============*/
+h1{
+    font-size:var(--font-h1);
+    font-weight:var(--font-bold);
+    letter-spacing:.175px;
+    line-height:1.1;
+}
+
+h2{
+    font-size:var(--font-h2);
+    font-weight:var(--font-semibold);
+    letter-spacing:.15px;
+    line-height:1.275;
+}
+
+h3{
+    font-size:var(--font-h3);
+    font-weight:var(--font-bold);
+    line-height:1.35;
+}
+
+p{
+    font-weight:var(--font-normal);
+    line-height:1.5;
+}
+
+/*=============== ELEMENTS ===============*/
+a{
+    text-decoration:none;
+}
+
+a:hover{
+    color:var(--vshojo-pink);
+    text-decoration:underline;
+}
+
+/* a:visited{
+    color:inherit;
+} */
+
+ul{
+    list-style:none;
+}
+
+img{
+    width:auto;
+    height:auto;
+    max-width:100%;
+    max-height:100%;
+    background-repeat:no-repeat;
+}
+
+/*=============== LAYOUT UTILITIES ===============*/
+/*===== Flex =====*/
+.flex{
+    display:flex;
+}
+
+.flex-center { 
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.flex-between {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.flex-col { 
+    display:flex;
+    flex-direction:column; 
+}
+
+.flex-row { 
+    display:flex;
+    flex-direction:row; 
+}
+
+/*===== Grid =====*/
+.grid{
+    display:grid;
+}
+
+/*===== Container =====*/
+.container{
+    width:100%;
+    margin-inline:auto;
+}
+
+/*===== Wrapper =====*/
+.wrapper{
+    padding-inline:1.5rem;
+}
+
+/*=============== SPACING UTILITIES ===============*/
+/*===== Gap =====*/
+.gap-xs { gap:.5rem; }
+.gap-sm { gap:1rem; }
+.gap-md { gap:1.5rem; }
+.gap-lg { gap:2.5rem; }
+
+/*===== Padding =====*/
+.p-xs { padding:.5rem; }
+.p-sm { padding:1rem; }
+.p-md { padding:1.5rem; }
+.p-lg { padding:2.5rem; }
+
+/*=============== TEXT UTILITIES ===============*/
+.text-center { text-align:center; }
+.text-left { text-align:left; }
+.text-right { text-align:right; }
+
+/*=============== VISIBILITY UTILITIES ===============*/
+.hidden { display:none; }
+.visible { display:block; }
+
+/*=============== RESPONSIVE UTILITIES ===============*/
+.hide-mobile,
+.hide-desktop{
+    display:initial;
+}
+
+@media (max-width:768px) 
+{
+    .hide-mobile { display:none; }
+}
+
+@media (min-width:769px) 
+{
+    .hide-desktop { display:none; }
+}
+
+@media (min-width: 1024px)
+{
+    .gap-xs { gap:1rem; }
+    .gap-sm { gap:2rem; }
+    .gap-md{ gap:3rem; }
+    .gap-lg { gap:4rem; }
+}
