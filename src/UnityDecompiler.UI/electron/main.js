@@ -5,8 +5,8 @@ const createWindow = () => {
     const window = new BrowserWindow({
         title: "Unity game decompiler",
         icon: path.join(__dirname, '../public/icon.png'),
-        width: 498,
-        height: 720,
+        width: 500,
+        height: 750,
         resizable: false,
         autoHideMenuBar: true,
         webPreferences: {
@@ -22,6 +22,16 @@ const createWindow = () => {
 
 // ==================== HANDLERS ====================
 
+app.whenReady().then(() => {
+    createWindow()
+})
+
+app.on('window-all-closed', () => {
+    if (process.platform !== 'darwin') {
+        app.quit()
+    }
+})
+
 ipcMain.handle('dialog:openFile', async () => {
     const { canceled, filePaths } = await dialog.showOpenDialog({
         title: 'Select an EXE file',
@@ -34,13 +44,14 @@ ipcMain.handle('dialog:openFile', async () => {
     return canceled ? null : filePaths[0];
 });
 
-app.whenReady().then(() => {
-    createWindow()
-})
-
-app.on('window-all-closed', () => {
-    if (process.platform !== 'darwin') {
-        app.quit()
+ipcMain.handle('file:getIcon', async (event, filePath) => {
+    try {
+        const icon = await app.getFileIcon(filePath, { size: 'normal' });
+        return icon.toDataURL();
+    } 
+    catch (err) {
+        console.error('Failed to get file icon:', err);
+        return null;
     }
-})
+});
 

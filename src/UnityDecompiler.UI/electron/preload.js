@@ -6,5 +6,6 @@ contextBridge.exposeInMainWorld('electronAPI', {
     path: {
         dirname: (filePath) => path.dirname(filePath) + path.sep,
         basename: (filePath) => path.basename(filePath),
-    }
+    },
+    getFileIcon: (filePath) => ipcRenderer.invoke('file:getIcon', filePath)
 });
