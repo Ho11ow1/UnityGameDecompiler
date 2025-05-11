@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnityDecompiler.UI", "src\U
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnityDecompiler", "UnityDecompiler", "{B90E01AB-99E0-49A8-BDA7-16A91B578D2D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnityDecompiler.CLI", "src\UnityDecompiler.CLI\UnityDecompiler.CLI.csproj", "{233D0999-7A3A-4D6D-AC11-0499ED52EBE8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +45,10 @@ Global
 		{7DA09334-3569-4149-A7F7-DBA45103F290}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7DA09334-3569-4149-A7F7-DBA45103F290}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7DA09334-3569-4149-A7F7-DBA45103F290}.Release|Any CPU.Build.0 = Release|Any CPU
+		{233D0999-7A3A-4D6D-AC11-0499ED52EBE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{233D0999-7A3A-4D6D-AC11-0499ED52EBE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{233D0999-7A3A-4D6D-AC11-0499ED52EBE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{233D0999-7A3A-4D6D-AC11-0499ED52EBE8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -54,5 +60,9 @@ Global
 		{B71DC64E-2A36-48ED-98EC-3AFCCC71EB03} = {1E8F5E75-13EA-4D12-850B-396C35A00774}
 		{D63414D5-B5F0-4824-B073-8339DEDE3CD9} = {1E8F5E75-13EA-4D12-850B-396C35A00774}
 		{7DA09334-3569-4149-A7F7-DBA45103F290} = {1E8F5E75-13EA-4D12-850B-396C35A00774}
+		{233D0999-7A3A-4D6D-AC11-0499ED52EBE8} = {1E8F5E75-13EA-4D12-850B-396C35A00774}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A99E1275-9EB1-4823-A4D6-9144C7FBA1E9}
 	EndGlobalSection
 EndGlobal
