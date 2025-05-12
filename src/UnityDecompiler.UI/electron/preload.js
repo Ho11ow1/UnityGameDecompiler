@@ -7,5 +7,10 @@ contextBridge.exposeInMainWorld('electronAPI', {
         dirname: (filePath) => path.dirname(filePath) + path.sep,
         basename: (filePath) => path.basename(filePath),
     },
-    getFileIcon: (filePath) => ipcRenderer.invoke('file:getIcon', filePath)
+    getFileIcon: (filePath) => ipcRenderer.invoke('file:getIcon', filePath),
+    // Seperator
+    selectDirectory: () => ipcRenderer.invoke('dialog:setDirectory'),
+    directory: {
+        dir : (dirPath) => dirPath + path.sep,
+    }
 });

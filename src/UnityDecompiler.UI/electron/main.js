@@ -5,8 +5,8 @@ const createWindow = () => {
     const window = new BrowserWindow({
         title: "Unity game decompiler",
         icon: path.join(__dirname, '../public/icon.png'),
-        width: 500,
-        height: 750,
+        width: 600,
+        height: 900,
         resizable: false,
         autoHideMenuBar: true,
         webPreferences: {
@@ -55,3 +55,11 @@ ipcMain.handle('file:getIcon', async (event, filePath) => {
     }
 });
 
+ipcMain.handle('dialog:setDirectory', async () => {
+    const { canceled, filePaths } = await dialog.showOpenDialog({
+        title: 'Select output directory',
+        properties: ['openDirectory'],
+    });
+
+    return canceled ? null : filePaths[0];
+});
