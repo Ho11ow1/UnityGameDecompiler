@@ -18,6 +18,11 @@ using System.IO;
 #pragma warning disable
 public class FileLogger : ILogger
 {
+    public FileLogger()
+    {
+        if (File.Exists(Globals.logFile)) { File.Delete(Globals.logFile); } // Purely for testing
+    }
+
     public void Debug(string message)
     {
         using (var sw = new StreamWriter(Globals.logFile, true))
