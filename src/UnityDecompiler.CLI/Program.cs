@@ -4,12 +4,15 @@ public static class Program
 {
     public static void Main(string[] args)
     {
-        FileLogger fl = new FileLogger(); // Purely for testing
-        if (File.Exists(Globals.logFile)) { File.Delete(Globals.logFile); } // Purely for testing
-
-        fl.Debug("Debug statement"); // Purely for testing
-        fl.Info("Info statement"); // Purely for testing
-        fl.Warning("warning statement"); // Purely for testing
-        fl.Exception(new ArgumentNullException(), "Happened"); // Purely for testing
+        if (String.IsNullOrEmpty(args[0]))
+        {
+            throw new ArgumentNullException();
+        }
+        if (String.IsNullOrEmpty(args[1]))
+        {
+            throw new ArgumentNullException();
+        }
+        GameInfo.dataPath = args[0];
+        Globals.outputPath = args[1];
     }
 }
