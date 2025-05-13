@@ -1,5 +1,6 @@
 ﻿using System;
 
+#pragma warning disable
 public static class Program
 {
     public static void Main(string[] args)
@@ -13,6 +14,8 @@ public static class Program
             throw new ArgumentNullException();
         }
         GameInfo.dataPath = args[0];
-        Globals.outputPath = args[1];
+        ExtractorSettings.outputPath = args[1];
+
+        
     }
 }

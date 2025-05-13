@@ -20,12 +20,17 @@ public class FileLogger : ILogger
 {
     public FileLogger()
     {
-        if (File.Exists(Globals.logFile)) { File.Delete(Globals.logFile); } // Purely for testing
+        if (!Directory.Exists(ExtractorSettings.outputPath)) { throw new DirectoryNotFoundException(); }
+
+        if (File.Exists(Path.Combine(ExtractorSettings.outputPath, ExtractorSettings.logFile))) 
+        { 
+            File.Delete(Path.Combine(ExtractorSettings.outputPath, ExtractorSettings.logFile)); 
+        }
     }
 
     public void Debug(string message)
     {
-        using (var sw = new StreamWriter(Globals.logFile, true))
+        using (var sw = new StreamWriter(Path.Combine(ExtractorSettings.outputPath, ExtractorSettings.logFile), true))
         {
             sw.WriteLine($"DEBUG: {message}.");
         }
@@ -33,7 +38,7 @@ public class FileLogger : ILogger
 
     public void Info(string message)
     {
-        using (var sw = new StreamWriter(Globals.logFile, true))
+        using (var sw = new StreamWriter(Path.Combine(ExtractorSettings.outputPath, ExtractorSettings.logFile), true))
         {
             sw.WriteLine($"INFO: {message}.");
         }
@@ -41,7 +46,7 @@ public class FileLogger : ILogger
 
     public void Warning(string message)
     {
-        using (var sw = new StreamWriter(Globals.logFile, true))
+        using (var sw = new StreamWriter(Path.Combine(ExtractorSettings.outputPath, ExtractorSettings.logFile), true))
         {
             sw.WriteLine($"WARNING: {message}.");
         }
@@ -49,7 +54,7 @@ public class FileLogger : ILogger
 
     public void Error(string message)
     {
-        using (var sw = new StreamWriter(Globals.logFile, true))
+        using (var sw = new StreamWriter(Path.Combine(ExtractorSettings.outputPath, ExtractorSettings.logFile), true))
         {
             sw.WriteLine($"ERROR: {message}.");
         }
@@ -57,7 +62,7 @@ public class FileLogger : ILogger
 
     public void Exception(Exception exception, string message = null)
     {
-        using (var sw = new StreamWriter(Globals.logFile, true))
+        using (var sw = new StreamWriter(Path.Combine(ExtractorSettings.outputPath, ExtractorSettings.logFile), true))
         {
             sw.WriteLine($"EXCEPTION: {exception} | {message}.");
         }

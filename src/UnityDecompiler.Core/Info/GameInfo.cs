@@ -34,11 +34,6 @@ public static class GameInfo
     public static bool isIL2CPP { get; set; }
 
     /// <summary>
-    /// Gets or sets a value indicating whether the game is obfuscated.
-    /// </summary>
-    public static bool isObfuscated { get; set; }
-
-    /// <summary>
     /// Gets or sets the path to the game's main data directory.
     /// </summary>
     public static string dataPath { get; set; }
