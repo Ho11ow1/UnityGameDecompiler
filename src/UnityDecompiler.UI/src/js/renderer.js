@@ -24,9 +24,26 @@ document.getElementById('select-dir-btn').addEventListener('click', async() => {
 
     if(!dirPath) { return; }
 
-    outputPathS.textContent = dirPath ? window.electronAPI.directory.dir(dirPath) : 'No directory selected';
+    outputPathS.textContent = dirPath ? dirPath : 'No directory selected';
 })
 
-// const decompileBtn = document.getElementById('decompile-btn');
-// decompileBtn.addEventListener('click', async () => {
-// });
+document.getElementById('decompile-btn').addEventListener('click', async () => {
+    const filePath = filePathS.textContent;
+    const outputPath = outputPathS.textContent;
+
+    if (!filePath || !outputPath) 
+    {
+        alert('Please select a file and an output directory.');
+        return;
+    }
+    const btn = document.getElementById('decompile-btn');
+    const btnH3 = document.querySelector('#decompile-btn h3');
+
+    btn.disabled = true;
+    btnH3.textContent = 'Decompiling...';
+
+    await window.electronAPI.decompile(filePath, outputPath);
+
+    btn.disabled = false;
+    btnH3.textContent = 'Decompile';
+});

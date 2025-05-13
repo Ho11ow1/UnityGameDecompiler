@@ -1,4 +1,5 @@
 const { app, BrowserWindow, ipcMain, dialog } = require('electron')
+const { execFile } = require('child_process');
 const path = require('node:path')
 
 const createWindow = () => {
@@ -63,3 +64,21 @@ ipcMain.handle('dialog:setDirectory', async () => {
 
     return canceled ? null : filePaths[0];
 });
+
+ipcMain.handle('decompile:exe', async (event, filePath, outputPath) => {
+    const decompilerPath = path.join(__dirname, 'UnityDecompiler.CLI.exe');
+    const args = [filePath, outputPath];
+
+    // execFile(decompilerPath, args);
+    execFile(decompilerPath, args, (error, stdout, stderr) => {
+        if (error) {
+            console.error(`Error: ${error.message}`);
+            return;
+        }
+        if (stderr) {
+            console.error(`stderr: ${stderr}`);
+            return;
+        }
+        console.log(`stdout: ${stdout}`);
+    });
+})
