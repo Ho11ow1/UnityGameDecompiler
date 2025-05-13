@@ -1,9 +1,9 @@
 # UnityDecompiler
-[![Status: Work In Progress](https://img.shields.io/badge/Status-Work%20In%20Progress-yellow.svg)](https://github.com/yourusername/UnityDecompiler)
-[![Version: 0.1.0-alpha](https://img.shields.io/badge/Version-0.1.0--alpha-blue.svg)](https://github.com/yourusername/UnityDecompiler/releases)
-[![.NET Core](https://img.shields.io/badge/.NET%20Core-6.0-purple.svg)](https://dotnet.microsoft.com/download)
+[![Status: Work In Progress](https://img.shields.io/badge/Status-Work%20In%20Progress-yellow.svg)](https://github.com/Ho11ow1/UnityGameDecompiler)
+[![Version: 0.1.0-alpha](https://img.shields.io/badge/Version-0.1.0--alpha-blue.svg)](https://github.com/Ho11ow1/UnityGameDecompiler/releases)
+[![.NET Core](https://img.shields.io/badge/.NET%20Core-8.0-purple.svg)](https://dotnet.microsoft.com/download)
 [![Electron](https://img.shields.io/badge/Electron-Latest-brightgreen.svg)](https://www.electronjs.org/)
-[![License: Apache-2-0](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/license/apache-2-0)
+[![License: Apache-2-0](https://img.shields.io/badge/License-Apache%202%200-green.svg)](https://opensource.org/license/apache-2-0)
 <br/>
 A comprehensive `work in progress` decompilation tool for Unity games, providing extraction and reconstruction of game assets and code. 
 <br/><br/>
