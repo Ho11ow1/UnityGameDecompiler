@@ -17,19 +17,17 @@ using System.IO;
 using System.Text;
 
 #pragma warning disable
-public class BuildMethodAnalyzer
+public static class BuildMethodAnalyzer
 {
-    public string GetBuildMethod(string gameFolder)
+    public static bool IsIL2CPP(string gameFolder)
     {
-        string gameAssemblyPath = PathUtils.SetGameAssemblyPath(gameFolder);
-        string metadataPath = PathUtils.SetMetadataPath(gameFolder);
-
-        if (File.Exists(gameAssemblyPath) && File.Exists(metadataPath))
+        if (File.Exists(Path.Combine(gameFolder, "GameAssembly.dll")))
         {
             GameInfo.isIL2CPP = true;
+            return true;
         }
 
-        return GameInfo.isIL2CPP ? "IL2CPP" : "Mono";
+        return false;
     }
 
 

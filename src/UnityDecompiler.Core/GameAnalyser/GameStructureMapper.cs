@@ -19,5 +19,5 @@ using System.Text;
 #pragma warning disable
 public class StructureMapper
 {
-
+    
 }

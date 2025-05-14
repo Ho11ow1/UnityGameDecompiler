@@ -34,11 +34,6 @@ public static class AssemblyInfo
     public static bool isGameAssembly { get; set; }
 
     /// <summary>
-    /// Gets or sets a value indicating whether the assembly is obfuscated.
-    /// </summary>
-    public static bool isObfuscated { get; set; }
-
-    /// <summary>
     /// Gets or sets the list of namespaces in the assembly.
     /// </summary>
     public static List<string> namespaces { get; set; } = new List<string>();

@@ -14,6 +14,7 @@
     --vshojo-light-gray: #707070;
 
     --border-radius:30px;
+    --border-radius-sm:15px;
 
     /*========== Font and Typography ==========*/
     --body-font:"Poppins", sans-serif;

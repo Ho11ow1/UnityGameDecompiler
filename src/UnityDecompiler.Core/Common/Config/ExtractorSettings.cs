@@ -13,3 +13,9 @@
 * limitations under the License.
 */
 
+#pragma warning disable
+public static class ExtractorSettings
+{
+    public static string logFile = "log.txt";
+    public static string outputPath { get; set; }
+}
