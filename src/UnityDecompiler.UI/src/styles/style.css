@@ -1,43 +1,50 @@
 @import url("base.css");
 
-.file-select{
-    text-align: center;
-    row-gap: 2rem;
-    padding: 2rem 1rem;
+body{
+    overflow-y:hidden;
 }
 
-#select-file-btn {
-    padding: 0.75rem 1.5rem;
-    background-color: var(--white);
-    font-size: 1rem;
-    font-weight: var(--font-semibold);
-    border: none;
-    border-radius: 30px;
-    box-shadow: 4px 6px 12px rgba(0, 0, 0, 0.25);
-    cursor: pointer;
+.file-section{
+    align-items:center;
+    text-align:center;
 }
 
-#select-file-btn:hover {
-    box-shadow: 6px 8px 16px rgba(0, 0, 0, 0.3);
+.file-icon{
+    margin-inline:auto;
+    width:120px;
+    height:120px;
+    aspect-ratio:1/1;
+    background-size:contain;
+    background-image:var(--file-icon);
+    background-repeat:no-repeat;
 }
 
-#file-info {
-    row-gap: 1rem;
-    max-width: 480px;
+.button{
+    padding:0.75rem 1.25rem;
+    border:none;
+    border-radius:var(--border-radius);
+    background-color:var(--dark-white);
+    box-shadow:4px 8px 12px var(--vshojo-dark-gray);
+    cursor:pointer;
 }
 
-#file-info p {
-    padding: 0.75rem 1rem;
-    border-radius:15px;
-    background-color: var(--dark-white);
-    font-weight:700;
-    word-wrap: break-word;
-    word-break: break-word;
-    overflow-wrap: break-word;
+.button:hover{
+    box-shadow:6px 10px 14px var(--vshojo-dark-gray);
 }
 
-#file-info p span {
-    color: var(--dark-gray);
-    font-weight: 400;
+.file-info > h3{
+    width:480px;
+    min-height:60px;
+    height:auto;
+    padding:0.5rem 1rem;
+    color:var(--black);
+    background-color:var(--dark-white);
+    border-radius:var(--border-radius-sm);
 }
 
+.file-info > h3 > span{
+    display:block;
+    margin:0.3rem 0;
+    font-weight:var(--font-normal);
+    overflow-wrap:break-word;
+}

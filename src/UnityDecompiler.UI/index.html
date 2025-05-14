@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+<<<<<<< HEAD
         <title>Hello from Electron renderer!</title>
 
         <link rel="stylesheet" href="src/styles/style.css" />
@@ -19,6 +20,49 @@
             </div>
 
             <!-- <button id="decompile-btn" type="button">Decompile</button>  TODO-->
+=======
+        <title>Unity game decompiler</title>
+        <link rel="stylesheet" href="src/styles/style.css" />
+
+        <meta 
+            http-equiv="Content-Security-Policy" 
+            content="default-src 'self'; 
+                script-src 'self'; 
+                style-src 'self' https://fonts.googleapis.com; 
+                font-src 'self' https://fonts.gstatic.com; 
+                img-src 'self' data:; " 
+        />
+        <meta 
+            http-equiv="X-Content-Security-Policy" 
+            content="default-src 'self'; 
+                    script-src 'self'; " 
+        />
+        <meta charset="UTF-8" />
+  </head>
+    <body>
+        <section class="file-section container wrapper flex-col flex-center p-md gap-lg">
+            <div id="file-icon" class="file-icon"></div>
+
+            <button id="select-file-btn" type="button" class="button"><h3>Open File(Electron)</h3></button>
+            <button id="select-dir-btn" type="button" class="button"><h3>Select Directory(Electron)</h3></button>
+            <p id="output-dir">Output-dir:<br/>
+                <span></span>
+            </p>
+
+            <div id="file-info" class="file-info flex-col flex-center gap-md">
+                <h3 id="file-name">File name:<br/>
+                    <span></span>
+                </h3>
+                <h3 id="file-directory">Directory:<br/>
+                    <span></span>
+                </h3>
+                <h3 id="file-path">Absolute path:<br/>
+                    <span></span>
+                </h3>
+            </div>
+
+            <button id="decompile-btn" type="button" class="button"><h3>Decompile</h3></button>
+>>>>>>> 734af300c8fc09b81d4555d2faf4551750e05087
         </section>
         <script src="src/js/renderer.js"></script>
     </body>

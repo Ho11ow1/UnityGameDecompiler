@@ -16,7 +16,50 @@ using System;
 using System.IO;
 
 #pragma warning disable
-public class FileLogger
+public class FileLogger : ILogger
 {
+    public FileLogger()
+    {
+        if (!Directory.Exists(ExtractorSettings.outputPath)) { throw new DirectoryNotFoundException(); }
+    }
 
+    public void Debug(string message)
+    {
+        using (var sw = new StreamWriter(Path.Combine(ExtractorSettings.outputPath, ExtractorSettings.logFile), true))
+        {
+            sw.WriteLine($"DEBUG: {message}.");
+        }
+    }
+
+    public void Info(string message)
+    {
+        using (var sw = new StreamWriter(Path.Combine(ExtractorSettings.outputPath, ExtractorSettings.logFile), true))
+        {
+            sw.WriteLine($"INFO: {message}.");
+        }
+    }
+
+    public void Warning(string message)
+    {
+        using (var sw = new StreamWriter(Path.Combine(ExtractorSettings.outputPath, ExtractorSettings.logFile), true))
+        {
+            sw.WriteLine($"WARNING: {message}.");
+        }
+    }
+
+    public void Error(string message)
+    {
+        using (var sw = new StreamWriter(Path.Combine(ExtractorSettings.outputPath, ExtractorSettings.logFile), true))
+        {
+            sw.WriteLine($"ERROR: {message}.");
+        }
+    }
+
+    public void Exception(Exception exception, string message = null)
+    {
+        using (var sw = new StreamWriter(Path.Combine(ExtractorSettings.outputPath, ExtractorSettings.logFile), true))
+        {
+            sw.WriteLine($"EXCEPTION: {exception} | {message}.");
+        }
+    }
 }
