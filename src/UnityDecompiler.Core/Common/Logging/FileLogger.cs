@@ -21,11 +21,6 @@ public class FileLogger : ILogger
     public FileLogger()
     {
         if (!Directory.Exists(ExtractorSettings.outputPath)) { throw new DirectoryNotFoundException(); }
-
-        if (File.Exists(Path.Combine(ExtractorSettings.outputPath, ExtractorSettings.logFile))) 
-        { 
-            File.Delete(Path.Combine(ExtractorSettings.outputPath, ExtractorSettings.logFile)); 
-        }
     }
 
     public void Debug(string message)

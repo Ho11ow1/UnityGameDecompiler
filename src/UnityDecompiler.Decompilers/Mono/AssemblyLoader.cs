@@ -12,4 +12,34 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
+using Mono.Cecil;
 
+#pragma warning disable
+public class AssemblyLoader
+{
+    public static void ReadAssembly(string assemblyPath)
+    {
+        var assembly = AssemblyDefinition.ReadAssembly(assemblyPath);
+        FileLogger fl = new FileLogger();
+
+        foreach (var type in assembly.MainModule.Types)
+        {
+            //Console.WriteLine($"Class: {type.FullName}");
+            fl.Info($"Class: {type.FullName}");
+
+            // Get fields (variables)
+            foreach (var field in type.Fields)
+            {
+                //Console.WriteLine($"  Field: {field.FieldType} {field.Name}");
+                fl.Info($"  Field: {field.FieldType} {field.Name}");
+            }
+
+            // Get methods
+            foreach (var method in type.Methods)
+            {
+                //Console.WriteLine($"  Method: {method.ReturnType} {method.Name}({string.Join(", ", method.Parameters.Select(p => $"{p.ParameterType} {p.Name}"))})");
+                fl.Info($"  Method: {method.ReturnType} {method.Name}({string.Join(", ", method.Parameters.Select(p => $"{p.ParameterType} {p.Name}"))})");
+            }
+        }
+    }
+}

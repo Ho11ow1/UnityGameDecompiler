@@ -18,9 +18,9 @@ using System.Text;
 using System.Text.RegularExpressions;
 
 #pragma warning disable
-public class VersionDetector
+public static class UnityVersionDetector
 {
-    public string GetUnityVersion(string gameFolder)
+    public static string GetUnityVersion(string gameFolder)
     {
         string globalGameManagerPath = PathUtils.SetGlobalGameManagerPath(gameFolder);
 

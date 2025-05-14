@@ -17,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnityDecompiler.UI", "src\U
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnityDecompiler", "UnityDecompiler", "{B90E01AB-99E0-49A8-BDA7-16A91B578D2D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnityDecompiler.CLI", "src\UnityDecompiler.CLI\UnityDecompiler.CLI.csproj", "{233D0999-7A3A-4D6D-AC11-0499ED52EBE8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnityDecompiler.CLI", "src\UnityDecompiler.CLI\UnityDecompiler.CLI.csproj", "{233D0999-7A3A-4D6D-AC11-0499ED52EBE8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -7,7 +7,7 @@ const createWindow = () => {
         title: "Unity game decompiler",
         icon: path.join(__dirname, '../public/icon.png'),
         width: 600,
-        height: 900,
+        height: 1080,
         resizable: false,
         autoHideMenuBar: true,
         webPreferences: {
@@ -65,9 +65,9 @@ ipcMain.handle('dialog:setDirectory', async () => {
     return canceled ? null : filePaths[0];
 });
 
-ipcMain.handle('decompile:exe', async (event, filePath, outputPath) => {
-    const decompilerPath = path.join(__dirname, 'UnityDecompiler.CLI.exe');
-    const args = [filePath, outputPath];
+ipcMain.handle('decompile:exe', async (event, filePath, folderPath, outputPath) => {
+    const decompilerPath = path.join(__dirname, '../../UnityDecompiler.CLI/bin/Debug/net8.0/UnityDecompiler.CLI.exe');
+    const args = [filePath, folderPath, outputPath];
 
     // execFile(decompilerPath, args);
     execFile(decompilerPath, args, (error, stdout, stderr) => {

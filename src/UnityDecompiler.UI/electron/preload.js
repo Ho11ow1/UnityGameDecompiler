@@ -11,5 +11,5 @@ contextBridge.exposeInMainWorld('electronAPI', {
     // Seperator
     selectDirectory: () => ipcRenderer.invoke('dialog:setDirectory'),
     // Seperator
-    decompile: (filePath, outputPath) => ipcRenderer.invoke('decompile:exe', filePath, outputPath)
+    decompile: (filePath, folderPath, outputPath) => ipcRenderer.invoke('decompile:exe', filePath, folderPath, outputPath)
 });

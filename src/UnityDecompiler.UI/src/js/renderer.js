@@ -29,6 +29,7 @@ document.getElementById('select-dir-btn').addEventListener('click', async() => {
 
 document.getElementById('decompile-btn').addEventListener('click', async () => {
     const filePath = filePathS.textContent;
+    const folderPath = fileDirS.textContent;
     const outputPath = outputPathS.textContent;
 
     if (!filePath || !outputPath) 
@@ -42,7 +43,7 @@ document.getElementById('decompile-btn').addEventListener('click', async () => {
     btn.disabled = true;
     btnH3.textContent = 'Decompiling...';
 
-    await window.electronAPI.decompile(filePath, outputPath);
+    await window.electronAPI.decompile(filePath, folderPath, outputPath);
 
     btn.disabled = false;
     btnH3.textContent = 'Decompile';
