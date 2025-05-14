@@ -4,11 +4,31 @@
 
 UnityDecompiler is built on a modular architecture:
 
-1. **Core**: Contains the central logic, pipeline processing, GameAnalysis and utility functions
-2. **Decompilers**: Specialized modules for IL2CPP and Mono decompilation
-3. **Asset Extractors**: Extract and convert various Unity asset types
-4. **Project Generation**: Reconstruct Unity projects from extracted components
-5. **UI**: Electron-based graphical interface that communicates with the C# backend
+1. **Core**:<br/>
+    `
+        Contains the core functionality, logic, pipeline processing, game information analysis + common utilities
+    `
+2. **Decompilers**:<br/>
+    `
+        Specialized modules for IL2CPP and Mono decompilation with a common decompiled class / project layout
+    `
+3. **Asset Extractors**:<br/>
+    `
+        Extracts and converts various assets
+    `
+4. **Project Generation**:<br/>
+    `
+        Reconstructs the decompiled game into a Unity project based on a project and script template
+    `
+5. **UI**:<br/>
+    `
+        An electron-based GUI that communicates with the C# backend 
+    `
+
+## Relationships
+
+
+<br/>
 
 ## Complete structure
 ```
