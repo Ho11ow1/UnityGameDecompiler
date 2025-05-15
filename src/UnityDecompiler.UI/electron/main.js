@@ -6,7 +6,7 @@ const createWindow = () => {
     const window = new BrowserWindow({
         title: "Unity game decompiler",
         icon: path.join(__dirname, '../public/icon.png'),
-        width: 600,
+        width: 720,
         height: 1080,
         resizable: false,
         autoHideMenuBar: true,
@@ -82,3 +82,4 @@ ipcMain.handle('decompile:exe', async (event, filePath, folderPath, outputPath) 
         console.log(`stdout: ${stdout}`);
     });
 })
+

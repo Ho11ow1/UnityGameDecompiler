@@ -19,27 +19,40 @@ public class AssemblyLoader
 {
     public static void ReadAssembly(string assemblyPath)
     {
-        var assembly = AssemblyDefinition.ReadAssembly(assemblyPath);
         FileLogger fl = new FileLogger();
 
-        foreach (var type in assembly.MainModule.Types)
+        try
         {
-            //Console.WriteLine($"Class: {type.FullName}");
-            fl.Info($"Class: {type.FullName}");
+            var assembly = AssemblyDefinition.ReadAssembly(assemblyPath);
 
-            // Get fields (variables)
-            foreach (var field in type.Fields)
+            // Classes
+            foreach (var type in assembly.MainModule.Types)
             {
-                //Console.WriteLine($"  Field: {field.FieldType} {field.Name}");
-                fl.Info($"  Field: {field.FieldType} {field.Name}");
-            }
+                var accessModifier = type.IsPublic ? "public" : "private";
+                fl.Info($"Class: {accessModifier} {type.FullName}");
 
-            // Get methods
-            foreach (var method in type.Methods)
-            {
-                //Console.WriteLine($"  Method: {method.ReturnType} {method.Name}({string.Join(", ", method.Parameters.Select(p => $"{p.ParameterType} {p.Name}"))})");
-                fl.Info($"  Method: {method.ReturnType} {method.Name}({string.Join(", ", method.Parameters.Select(p => $"{p.ParameterType} {p.Name}"))})");
+                // Variables
+                foreach (var field in type.Fields)
+                {
+                    var access = field.IsPrivate ? "private" : "public";
+                    var instance = field.IsStatic ? "static" : "";
+                    var serializable = !field.IsNotSerialized ? "[SerializeField] " : "";
+                    fl.Info($"  Field: {serializable} {access} {instance}".Trim() + $" {field.FieldType} {field.Name}");
+                }
+
+                // Methods
+                foreach (var method in type.Methods)
+                {
+                    string parameters = string.Join(", ", method.Parameters.Select(p => $"{p.ParameterType} {p.Name}"));
+                    fl.Info($"  Method: {method.ReturnType} {method.Name}({parameters})");
+                }
+
+
             }
+        }
+        catch (Exception ex) 
+        {
+            fl.Error($"Failed to read assembly: {ex.Message}");
         }
     }
 }
