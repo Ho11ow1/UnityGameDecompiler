@@ -48,3 +48,4 @@ document.getElementById('decompile-btn').addEventListener('click', async () => {
     btn.disabled = false;
     btnH3.textContent = 'Decompile';
 });
+

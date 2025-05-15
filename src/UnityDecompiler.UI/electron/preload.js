@@ -13,3 +13,4 @@ contextBridge.exposeInMainWorld('electronAPI', {
     // Seperator
     decompile: (filePath, folderPath, outputPath) => ipcRenderer.invoke('decompile:exe', filePath, folderPath, outputPath)
 });
+
