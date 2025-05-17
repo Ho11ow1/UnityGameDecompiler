@@ -21,25 +21,25 @@ public interface ILogger
     /// Logs a debug message.
     /// </summary>
     /// <param name="message">The message to log.</param>
-    public void Debug(string message);
+    public void Debug(string message, string desiredLogFile);
 
     /// <summary>
     /// Logs an informational message.
     /// </summary>
     /// <param name="message">The message to log.</param>
-    public void Info(string message);
+    public void Info(string message, string desiredLogFile);
 
     /// <summary>
     /// Logs a warning message.
     /// </summary>
     /// <param name="message">The message to log.</param>
-    public void Warning(string message);
+    public void Warning(string message, string desiredLogFile);
 
     /// <summary>
     /// Logs an error message.
     /// </summary>
     /// <param name="message">The message to log.</param>
-    public void Error(string message);
+    public void Error(string message, string desiredLogFile);
 
     /// <summary>
     /// Logs an exception.

@@ -1,4 +1,4 @@
-/* Copyright 2025 Hollow1
+﻿/* Copyright 2025 Hollow1
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -15,27 +15,19 @@
 using System.Text;
 
 #pragma warning disable
-public class DecompiledClass
+public class DecompiledInterface
 {
-    public string inheritedClass = null;
     public AccessModifier accessModifier;
     public string name;
-    public List<ExtractedVariable> variables = new List<ExtractedVariable>();
     public List<ExtractedMethod> methods = new List<ExtractedMethod>();
 
     public string ToString()
     {
         StringBuilder sb = new StringBuilder();
 
-        // Class header
-        sb.AppendLine($"{accessModifier.ToString().ToLower()} class {name} {(inheritedClass != null ? $": {inheritedClass}" : "")}");
+        // Interface header
+        sb.AppendLine($"{accessModifier.ToString().ToLower()} interface {name}");
         sb.AppendLine("{");
-
-        // Variables
-        foreach (var variable in variables)
-        {
-            sb.AppendLine($"    {variable.accessModifier.ToString().ToLower()}{(variable.isStatic ? " static " : " ")} {variable.type} {variable.name};");
-        }
 
         sb.AppendLine();
 
@@ -43,10 +35,7 @@ public class DecompiledClass
         foreach (var method in methods)
         {
             string paramsList = string.Join(", ", method.parameters.Select(p => $"{p.type} {p.name}"));
-            sb.AppendLine($"    {method.accessModifier.ToString().ToLower()}{(method.isStatic ? " static" : " ")} {method.returnType} {method.name}({paramsList})");
-            sb.AppendLine("    {");
-            sb.AppendLine("        // Method body not available");
-            sb.AppendLine("    }");
+            sb.AppendLine($"    {method.returnType} {method.name}({paramsList});");
         }
 
         sb.AppendLine("}");
@@ -112,13 +101,10 @@ public class DecompiledClass
             case "System.Void":
                 return "void";
                 break;
-            case ".ctor":
-            case ".cctor":
-                return this.name;
-                break;
         }
 
         return type;
     }
+
 }
 
