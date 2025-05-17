@@ -27,7 +27,7 @@ Current Development Phase:
 - [x] Stable easy to use electron GUI
 - [ ] Basic decompiler implementation | *Current main focus*
 - [ ] Asset extraction pipeline
-- [ ] Project generation module
+- [ ] Project generation module | *Basic code generation complete*
 - [ ] Comprehensive testing with various Unity versions
 - [ ] First beta release
 
