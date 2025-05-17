@@ -13,3 +13,9 @@
 * limitations under the License.
 */
 
+#pragma warning disable
+public class DecompiledProject
+{
+    public static List<DecompiledClass> classList = new List<DecompiledClass>();
+    public static List<DecompiledInterface> interfaceList = new List<DecompiledInterface>();
+}
