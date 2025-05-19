@@ -35,6 +35,13 @@ public static class Program
         var exePath = args[0];
         var gameFolderPath = args[1];
         var outputPath = args[2];
+        // string outputPath;
+        // #if DEBUG
+        //         outputPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "UnityDecompiler");
+        // #endif
+        // #if RELEAE
+        //         outputPath = args[2];
+        // #endif
 
         // Usually same output as Path.GetFileNameWithoutExtension but best be safe
         GameInfo.gameName = Path.GetFileNameWithoutExtension(Path.GetFileName(exePath));
@@ -48,11 +55,9 @@ public static class Program
             var assembly = Mono.PathUtils.SetGameAssemblyPath(gameFolderPath);
 			fl.Debug("Game compiled with: Mono");
 
-            //AssemblyLoader.ReadAssembly(assembly);
             AssemblyLoader al = new AssemblyLoader();
             al.ReadAssembly(assembly);
 
-            // ProjectWriter.GenerateProjectStrucute();
             ProjectWriter pw = new ProjectWriter();
             pw.GenerateProjectStrucute();
         }

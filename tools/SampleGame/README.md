@@ -9,6 +9,5 @@ This is a simple game sample to showcase the capabilites of the decompiler.
 - Demonstration of Unity features
 
 ## Requirements
-
-- Unity (compatible version)
+- Unity version 2022.3.10f1 or newer
 - Basic understanding of Unity development
