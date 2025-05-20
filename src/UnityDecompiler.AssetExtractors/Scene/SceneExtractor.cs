@@ -13,3 +13,9 @@
 * limitations under the License.
 */
 
+#pragma warning disable
+public class SceneExtractor
+{
+
+}
+

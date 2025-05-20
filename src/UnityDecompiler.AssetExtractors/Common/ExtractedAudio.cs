@@ -1,4 +1,4 @@
-/* Copyright 2025 Hollow1
+﻿/* Copyright 2025 Hollow1
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -12,10 +12,28 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
+using System.Text;
 
 #pragma warning disable
-public class ModelExtractor
+public class ExtractedAudio
 {
+    public string name;
+    public ExtensionType extensionType;
 
+    public string ToString()
+    {
+        StringBuilder sb = new StringBuilder();
+
+
+
+        return sb.ToString();
+    }
 }
 
+public enum ExtensionType
+{
+    wav,
+    ogg,
+    mp3,
+    aiff
+}
