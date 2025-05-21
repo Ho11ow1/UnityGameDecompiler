@@ -25,9 +25,9 @@ The tool bridges the gap between compiled Unity games and editable projects, all
 Current Development Phase:
 - [x] Core architecture design
 - [x] Stable easy to use electron GUI
-- [ ] Basic decompiler implementation | *Current main focus*
-- [ ] Asset extraction pipeline
-- [ ] Project generation module | *Basic code generation complete*
+- [ ] Basic decompiler implementation | *Primary focus | Mono*
+- [ ] Asset extraction pipeline | *Secondary focus | Mono*
+- [ ] Project generation module | *Basic code generation complete | Mono*
 - [ ] Comprehensive testing with various Unity versions
 - [ ] First beta release
 
