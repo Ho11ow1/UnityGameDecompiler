@@ -43,7 +43,7 @@ public static class Program
         //         outputPath = args[2];
         // #endif
 
-        // Usually same output as Path.GetFileNameWithoutExtension but best be safe
+        // Usually same output as Path.GetFileNameWithoutExtension but best to be safe
         GameInfo.gameName = Path.GetFileNameWithoutExtension(Path.GetFileName(exePath));
         ExtractorSettings.outputPath = outputPath;
         FileLogger fl = new FileLogger();
@@ -55,10 +55,12 @@ public static class Program
             var assembly = Mono.PathUtils.SetGameAssemblyPath(gameFolderPath);
 			fl.Debug("Game compiled with: Mono");
 
-            AssemblyLoader al = new AssemblyLoader();
-            al.ReadAssembly(assembly);
-
+            MonoDecompiler md = new MonoDecompiler();
             ProjectWriter pw = new ProjectWriter();
+
+            AssemblyLoader.ReadAssembly(assembly);
+            md.Decompile();
+
             pw.GenerateProjectStrucute();
         }
         else

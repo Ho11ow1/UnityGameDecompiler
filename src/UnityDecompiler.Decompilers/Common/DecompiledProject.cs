@@ -14,8 +14,11 @@
 */
 
 #pragma warning disable
+using Mono.Cecil;
+
 public class DecompiledProject
 {
     public static List<DecompiledClass> classList = new List<DecompiledClass>();
     public static List<DecompiledInterface> interfaceList = new List<DecompiledInterface>();
+    public static AssemblyDefinition assembly { get; set; }
 }

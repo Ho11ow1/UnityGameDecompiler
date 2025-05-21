@@ -14,8 +14,19 @@
 */
 
 #pragma warning disable
+using Mono.Cecil;
+
 public class SceneExtractor
 {
+    public void ExtractScenes()
+    {
+        ExtractedScene es = new ExtractedScene();
+        // es.name = ;
+    }
 
+    private void BuildScene(string name)
+    {
+        
+    }
 }
 

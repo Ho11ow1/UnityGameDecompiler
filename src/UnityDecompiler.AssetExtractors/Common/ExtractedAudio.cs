@@ -18,7 +18,7 @@ using System.Text;
 public class ExtractedAudio
 {
     public string name;
-    public ExtensionType extensionType;
+    public AudioFormat audioFormat;
 
     public string ToString()
     {
@@ -30,7 +30,7 @@ public class ExtractedAudio
     }
 }
 
-public enum ExtensionType
+public enum AudioFormat
 {
     wav,
     ogg,
