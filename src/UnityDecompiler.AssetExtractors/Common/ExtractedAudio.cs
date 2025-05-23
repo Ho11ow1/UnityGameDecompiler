@@ -14,7 +14,7 @@
 */
 using System.Text;
 
-#pragma warning disable
+
 public class ExtractedAudio
 {
     public string name;

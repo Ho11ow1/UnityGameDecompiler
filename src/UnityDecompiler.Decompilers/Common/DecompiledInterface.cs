@@ -14,7 +14,6 @@
 */
 using System.Text;
 
-#pragma warning disable
 public class DecompiledInterface
 {
     public AccessModifier accessModifier;
@@ -50,57 +49,41 @@ public class DecompiledInterface
             // System.Single
             case "System.Single":
                 return "float";
-                break;
             case "System.Single&":
                 return "float&";
-                break;
             case "System.Single[]":
                 return "float[]";
-                break;
             // System.Int32
             case "System.Int32":
                 return "int";
-                break;
             case "System.Int32&":
                 return "int&";
-                break;
             case "System.Int32[]":
                 return "int[]";
-                break;
             // System.UInt32
             case "System.UInt32":
                 return "uint";
-                break;
             case "System.UInt32&":
                 return "uint&";
-                break;
             case "System.UInt32[]":
                 return "uint[]";
-                break;
             // System.String
             case "System.String":
                 return "string";
-                break;
             case "System.String[]":
                 return "string[]";
-                break;
             // System.Boolean
             case "System.Boolean":
                 return "bool";
-                break;
             case "System.Boolean&":
                 return "bool&";
-                break;
             case "System.Boolean[]":
                 return "bool[]";
-                break;
             // Special cases
             case "System.Guid":
                 return "Guid";
-                break;
             case "System.Void":
                 return "void";
-                break;
         }
 
         return type;

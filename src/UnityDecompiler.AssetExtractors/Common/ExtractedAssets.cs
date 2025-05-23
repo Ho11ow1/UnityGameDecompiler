@@ -13,7 +13,7 @@
 * limitations under the License.
 */
 
-#pragma warning disable
+
 public class ExtractedAssets
 {
     public static List<ExtractedScene> sceneList = new List<ExtractedScene>();

@@ -16,19 +16,20 @@ using System;
 using System.IO;
 using System.Text;
 
-#pragma warning disable
 public static class BuildMethodAnalyzer
 {
     public static bool IsIL2CPP(string gameFolder)
     {
         if (File.Exists(Path.Combine(gameFolder, "GameAssembly.dll")))
         {
-            GameInfo.isIL2CPP = true;
             return true;
         }
 
         return false;
     }
 
-
+    public static GamePlatform GetBuildMethod() // TODO
+    {
+        return GamePlatform.Unknown;
+    }
 }

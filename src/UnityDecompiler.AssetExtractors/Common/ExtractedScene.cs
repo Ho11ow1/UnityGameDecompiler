@@ -16,7 +16,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-#pragma warning disable
+
 public class ExtractedScene
 {
     public string name;

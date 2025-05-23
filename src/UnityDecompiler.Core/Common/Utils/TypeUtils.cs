@@ -14,7 +14,6 @@
 */
 using System;
 
-#pragma warning disable
 public static class TypeUtils
 {
     

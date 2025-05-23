@@ -15,57 +15,50 @@
 using System.IO;
 using System.Threading.Tasks;
 
-#pragma warning disable
 public class ProjectWriter
 {
-    private static readonly string gameOutputPath = Path.Combine(ExtractorSettings.outputPath, $"{GameInfo.gameName}");
-    private readonly string assetsPath = Path.Combine(gameOutputPath, "Assets");
-    private readonly string audioPath = Path.Combine(gameOutputPath, "Assets/Audio");
-    private readonly string imagesPath = Path.Combine(gameOutputPath, "Assets/Images");
+    private readonly ParallelOptions parallelOptions = new ParallelOptions { MaxDegreeOfParallelism = 4 };
 
-    private readonly string scenesPath = Path.Combine(gameOutputPath, "Assets/Scenes");
-    private readonly string resourcesPath = Path.Combine(gameOutputPath, "Assets/Resources");
-
-    private readonly string scriptsPath = Path.Combine(gameOutputPath, "Assets/Scripts");
-    private readonly string interfacesPath = Path.Combine(gameOutputPath, "Assets/Scripts/Interfaces");
-
-    private readonly ParallelOptions parallelOptions = new ParallelOptions { MaxDegreeOfParallelism = 2 };
+    public ProjectWriter()
+    {
+        GenerationDirectories.assetsPath = Path.Combine(GenerationDirectories.projectOutputPath, "Assets");
+        GenerationDirectories.audioPath = Path.Combine(GenerationDirectories.assetsPath, "Audio");
+        GenerationDirectories.imagesPath = Path.Combine(GenerationDirectories.assetsPath, "Images");
+        GenerationDirectories.scenesPath = Path.Combine(GenerationDirectories.assetsPath, "Scenes");
+        GenerationDirectories.resourcesPath = Path.Combine(GenerationDirectories.assetsPath, "Resources");
+        GenerationDirectories.scriptsPath = Path.Combine(GenerationDirectories.assetsPath, "Scripts");
+        GenerationDirectories.interfacesPath = Path.Combine(GenerationDirectories.scriptsPath, "Interfaces");
+    }
 
     public void GenerateProjectStrucute()
     {
         FileLogger fl = new FileLogger();
         
         GenerateFolders(fl);
-        GenerateProjectAsync(fl); // Set for testing
-    }
+        
+        GenerateScripts(fl);
+        GenerateInterfaces(fl);
+        
+        // GenerateScenes(fl);
+        // GenerateModels(fl);
+        // GenerateAudios(fl);
 
-    private async Task GenerateProjectAsync(FileLogger fl) // Set for testing
-    {
-        var tasks = new List<Task>();
-
-        tasks.Add(Task.Run(() => GenerateScripts(fl)));
-        tasks.Add(Task.Run(() => GenerateInterfaces(fl)));
-        //tasks.Add(Task.Run(() => GenerateScenes(fl))); // TODO: Create basic extraction module first
-        //tasks.Add(Task.Run(() => GenerateModels(fl))); // TODO: Create basic extraction module first
-        //tasks.Add(Task.Run(() => GenerateAudios(fl))); // TODO: Create basic extraction module first
-
-        await Task.WhenAll(tasks);
     }
 
     private void GenerateFolders(FileLogger fl)
     {
         try
         {
-            Directory.CreateDirectory(assetsPath);
-            Directory.CreateDirectory(audioPath);
-            Directory.CreateDirectory(imagesPath);
+            Directory.CreateDirectory(GenerationDirectories.assetsPath);
+            Directory.CreateDirectory(GenerationDirectories.audioPath);
+            Directory.CreateDirectory(GenerationDirectories.imagesPath);
 
-            Directory.CreateDirectory(scenesPath);
-            Directory.CreateDirectory(resourcesPath);
+            Directory.CreateDirectory(GenerationDirectories.scenesPath);
+            Directory.CreateDirectory(GenerationDirectories.resourcesPath);
 
 
-            Directory.CreateDirectory(scriptsPath);
-            Directory.CreateDirectory(interfacesPath);
+            Directory.CreateDirectory(GenerationDirectories.scriptsPath);
+            Directory.CreateDirectory(GenerationDirectories.interfacesPath);
 
         }
         catch (Exception ex)
@@ -81,7 +74,7 @@ public class ProjectWriter
         Parallel.ForEach(DecompiledProject.classList, parallelOptions, CS => {
             try
             {
-                using (var sw = new StreamWriter(Path.Combine(scriptsPath, $"{CS.name}.cs"), false))
+                using (var sw = new StreamWriter(Path.Combine(GenerationDirectories.scriptsPath, $"{CS.name}.cs"), false))
                 {
                     sw.WriteLine("using System.Collections;");
                     sw.WriteLine("using System.Collections.Generic;");
@@ -92,12 +85,10 @@ public class ProjectWriter
             }
             catch (Exception ex)
             {
-                fl.Exception(ex, "Tried generating script files");
                 fl.Exception(ex, $"Failed to generate script for: {CS.name}");
             }
 
         });
-
     }
 
     private void GenerateInterfaces(FileLogger fl)
@@ -105,7 +96,7 @@ public class ProjectWriter
         Parallel.ForEach(DecompiledProject.interfaceList, parallelOptions, IF => {
             try
             {
-                using (var sw = new StreamWriter(Path.Combine(interfacesPath, $"{IF.name}.cs"), false))
+                using (var sw = new StreamWriter(Path.Combine(GenerationDirectories.interfacesPath, $"{IF.name}.cs"), false))
                 {
                     sw.WriteLine("using System.Collections;");
                     sw.WriteLine("using System.Collections.Generic;");
@@ -116,12 +107,10 @@ public class ProjectWriter
             }
             catch (Exception ex)
             {
-                fl.Exception(ex, "Tried generating interface files");
                 fl.Exception(ex, $"Failed to generate interface for: {IF.name}");
             }
 
         });
-
     }
 
     // -------------------------------------------------------------- ASSET GENERATION --------------------------------------------------------------
@@ -132,11 +121,13 @@ public class ProjectWriter
         {
             try
             {
+                using (var sw = new StreamWriter(Path.Combine(GenerationDirectories.scenesPath, $"{scene.name}.unity"), false))
+                {
 
+                }
             }
             catch (Exception ex)
             {
-                fl.Exception(ex, "Tried generating scene files");
                 fl.Exception(ex, $"Failed to generate scene for: {scene.name}");
             }
 
@@ -149,11 +140,13 @@ public class ProjectWriter
         {
             try
             {
+                using (var sw = new StreamWriter(Path.Combine(GenerationDirectories.scenesPath, $"{model.name}.{model.modelType.ToString()}"), false))
+                {
 
+                }
             }
             catch (Exception ex)
             {
-                fl.Exception(ex, "Tried generating model files");
                 fl.Exception(ex, $"Failed to generate model for: {model.name}");
             }
 
@@ -166,11 +159,13 @@ public class ProjectWriter
         {
             try
             {
+                using (var sw = new StreamWriter(Path.Combine(GenerationDirectories.scenesPath, $"{audio.name}.{audio.audioFormat.ToString()}"), false))
+                {
 
+                }
             }
             catch (Exception ex)
             {
-                fl.Exception(ex, "Tried generating audio files");
                 fl.Exception(ex, $"Failed to generate audioFIle for: {audio.name}");
             }
 

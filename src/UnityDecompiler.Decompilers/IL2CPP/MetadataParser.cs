@@ -15,7 +15,6 @@
 using System;
 
 
-#pragma warning disable
 public class MetadataParser
 {
     public static void ReadAssembly(string assemblyPath)

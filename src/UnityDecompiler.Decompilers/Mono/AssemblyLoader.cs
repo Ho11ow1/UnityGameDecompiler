@@ -14,7 +14,6 @@
 */
 using Mono.Cecil;
 
-#pragma warning disable
 public class AssemblyLoader
 {
     public static void ReadAssembly(string assemblyPath)

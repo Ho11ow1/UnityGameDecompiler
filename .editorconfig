@@ -1,0 +1,35 @@
+# C# files
+[*.cs]
+
+#### Core EditorConfig Options ####
+
+# Indentation and spacing
+indent_size = 4
+indent_style = space
+tab_width = 4
+
+#### Diagnostic Suppressions ####
+# Silenced suggestions or messages are undesired or don't match personal code style
+
+# Simple undesired changes
+dotnet_diagnostic.IDE0090.severity = none # Use 'new(...)' | Not desired
+dotnet_diagnostic.CA2211.severity = none # Naming rule violation | Start static variable name capitalised
+dotnet_diagnostic.IDE1006.severity = none # Naming rule violation | Start static variable name capitalised
+dotnet_diagnostic.IDE0028.severity = silent # Collection init can be simplified | new C#12+ version
+dotnet_diagnostic.IDE0300.severity = silent # Collection init can be simplified | new C#12+ version
+dotnet_diagnostic.IDE0071.severity = silent # Interpolation can be simplified | may hurt readability/understanding
+dotnet_diagnostic.IDE0063.severity = silent # 'using' can be simplified | prefer old using style
+
+# InDepth undesired changes
+dotnet_diagnostic.IDE0290.severity = none # Use primary constructor | Constructor in Object declaration
+dotnet_diagnostic.CA1822.severity = silent # Does not access instance data | can be set to static
+dotnet_diagnostic.IDE0066.severity = none # Use 'switch expression' | Arrows in switch statement
+
+# Code style inherited from unity specific warnings
+dotnet_diagnostic.CS0114.severity = silent # ToString() hides inherited object.ToString()
+dotnet_diagnostic.CA1050.severity = none # Top-level type should not be static | acceptable in Unity
+dotnet_diagnostic.IDE0051.severity = silent # Unused private member | allowed by unity
+dotnet_diagnostic.CS8603.severity = silent # Connot convert null | allowed by unity
+dotnet_diagnostic.CS8618.severity = silent # Connot convert null | allowed by unity
+dotnet_diagnostic.CS8625.severity = silent # Connot convert null | allowed by unity
+

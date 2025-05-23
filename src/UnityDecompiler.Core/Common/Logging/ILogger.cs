@@ -14,7 +14,6 @@
 */
 using System;
 
-#pragma warning disable
 public interface ILogger
 {
     /// <summary>

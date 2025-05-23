@@ -15,7 +15,6 @@
 using System;
 using System.IO;
 
-#pragma warning disable
 namespace Mono
 {
     public static class PathUtils
@@ -41,7 +40,12 @@ namespace Mono
             return null;
         }
 
+        public static string SetManagedPath(string gameFolder)
+        {
+            string managedPath = Path.Combine(gameFolder, "Managed");
 
+            return managedPath;
+        }
     }
 }
 
@@ -102,5 +106,12 @@ public static class PathUtils
         }
 
         return null;
+    }
+
+    public static string SetDataPath(string path)
+    {
+        string dataPath = Path.Combine(path, "_Data");
+
+        return dataPath;
     }
 }

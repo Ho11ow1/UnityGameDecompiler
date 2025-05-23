@@ -15,7 +15,6 @@
 using System;
 using System.IO;
 
-#pragma warning disable
 public static class FileUtils
 {
 

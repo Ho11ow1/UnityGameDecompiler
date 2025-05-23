@@ -12,16 +12,13 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-
-#pragma warning disable
-using Mono.Cecil;
+using System.Text;
 
 public class SceneExtractor
 {
     public void ExtractScenes()
     {
-        ExtractedScene es = new ExtractedScene();
-        // es.name = ;
+        
     }
 
     private void BuildScene(string name)

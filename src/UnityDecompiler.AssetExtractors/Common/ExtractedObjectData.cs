@@ -15,7 +15,6 @@
 using System.Drawing;
 
 
-#pragma warning disable
 public class GameObject
 {
     public GameObject()
@@ -80,6 +79,10 @@ public struct Vector3
 
 public class Component
 {
+    public Component(string name)
+    {
+        this.name = name;
+    }
     public string name;
 }
 
@@ -87,10 +90,7 @@ namespace Components
 {
     public class SpriteRenderer : Component
     {
-        public SpriteRenderer()
-        {
-            this.name = "SpriteRenderer";
-        }
+        public SpriteRenderer() : base("SpriteRenderer") {}
 
         public Sprite sprite;
         public Material material;
@@ -106,10 +106,7 @@ namespace Components
 
     public class RigidBody : Component
     {
-        public RigidBody()
-        {
-            this.name = "RigidBody";
-        }
+        public RigidBody() : base("RigidBody") {}
 
         public Physics.BodyType bodyType;
         public bool isSimulated = false;
@@ -124,10 +121,7 @@ namespace Components
 
     public class BoxCollider : Component
     {
-        public BoxCollider()
-        {
-            this.name = "RigidBody";
-        }
+        public BoxCollider() : base("RigidBody") {}
 
         public bool isTrigger = false;
         public Vector2 offset = new Vector2(0, 0);

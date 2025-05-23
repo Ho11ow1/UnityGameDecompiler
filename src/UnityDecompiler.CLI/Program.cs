@@ -15,50 +15,53 @@
 using System;
 using System.IO;
 
-#pragma warning disable
 public static class Program
 {
+    // string outputPath;
+    // #if DEBUG
+    //         outputPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "UnityDecompiler");
+    // #endif
+    // #if RELEAE
+    //         outputPath = args[2];
+    // #endif
     public static void Main(string[] args)
     {
         if (String.IsNullOrEmpty(args[0])) // ExePath
         {
-            throw new ArgumentNullException();
+            throw new ArgumentNullException(args[0]);
         }
         if (String.IsNullOrEmpty(args[1])) // GameFolder
         {
-            throw new ArgumentNullException();
+            throw new ArgumentNullException(args[1]);
         }
         if (String.IsNullOrEmpty(args[2])) // OutputPath
         {
-            throw new ArgumentNullException();
+            throw new ArgumentNullException(args[2]);
         }
         var exePath = args[0];
         var gameFolderPath = args[1];
         var outputPath = args[2];
-        // string outputPath;
-        // #if DEBUG
-        //         outputPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "UnityDecompiler");
-        // #endif
-        // #if RELEAE
-        //         outputPath = args[2];
-        // #endif
 
-        // Usually same output as Path.GetFileNameWithoutExtension but best to be safe
-        GameInfo.gameName = Path.GetFileNameWithoutExtension(Path.GetFileName(exePath));
         ExtractorSettings.outputPath = outputPath;
-        FileLogger fl = new FileLogger();
-
+        // Set GameInfo
+        GameInfo.gameName = Path.GetFileNameWithoutExtension(Path.GetFileName(exePath));
         GameInfo.unityVersion = UnityVersionDetector.GetUnityVersion(gameFolderPath);
-        BuildMethodAnalyzer.IsIL2CPP(gameFolderPath);
+        GameInfo.isIL2CPP = BuildMethodAnalyzer.IsIL2CPP(gameFolderPath);
+        GameInfo.dataPath = PathUtils.SetDataPath(gameFolderPath);
+        GameInfo.platform = BuildMethodAnalyzer.GetBuildMethod();
+
+
         if (!GameInfo.isIL2CPP)
         {
-            var assembly = Mono.PathUtils.SetGameAssemblyPath(gameFolderPath);
-			fl.Debug("Game compiled with: Mono");
+            GameInfo.managedAssembliesPath = Mono.PathUtils.SetManagedPath(gameFolderPath);
+
+            AssemblyInfo.path = Mono.PathUtils.SetGameAssemblyPath(gameFolderPath);
+            AssemblyInfo.name = Path.GetFileNameWithoutExtension(Path.GetFileName(AssemblyInfo.path));
 
             MonoDecompiler md = new MonoDecompiler();
             ProjectWriter pw = new ProjectWriter();
 
-            AssemblyLoader.ReadAssembly(assembly);
+            AssemblyLoader.ReadAssembly(AssemblyInfo.path);
             md.Decompile();
 
             pw.GenerateProjectStrucute();
@@ -66,7 +69,7 @@ public static class Program
         else
         {
             var assembly = IL2CPP.PathUtils.SetGameAssemblyPath(gameFolderPath);
-            fl.Debug("Game compiled with: IL2CPP");
+
             MetadataParser.ReadAssembly(assembly);
         }
             

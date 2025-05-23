@@ -14,7 +14,6 @@
 */
 
 
-#pragma warning disable
 public class MonoDecompiler
 {
     public void Decompile()
@@ -35,10 +34,11 @@ public class MonoDecompiler
             {
                 if (type.IsClass)
                 {
-                    DecompiledClass dc = new DecompiledClass();
-
-                    dc.accessModifier = type.IsPublic ? AccessModifier.Public : AccessModifier.Private;
-                    dc.name = type.FullName.ToString();
+                    DecompiledClass dc = new DecompiledClass
+                    {
+                        accessModifier = type.IsPublic ? AccessModifier.Public : AccessModifier.Private,
+                        name = type.FullName.ToString()
+                    };
 
                     try
                     {
@@ -63,7 +63,7 @@ public class MonoDecompiler
 
                         dc.variables.Add(new ExtractedVariable(
                             field.IsPublic ? AccessModifier.Public : AccessModifier.Private,
-                            field.IsStatic ? true : false,
+                            field.IsStatic,
                             dc.ConvertTypeToLiteral(field.FieldType.ToString()),
                             field.Name
                         ));
@@ -96,10 +96,11 @@ public class MonoDecompiler
                 }
                 else if (type.IsInterface)
                 {
-                    DecompiledInterface di = new DecompiledInterface();
-
-                    di.accessModifier = type.IsPublic ? AccessModifier.Public : AccessModifier.Private;
-                    di.name = type.FullName.ToString();
+                    DecompiledInterface di = new DecompiledInterface
+                    {
+                        accessModifier = type.IsPublic ? AccessModifier.Public : AccessModifier.Private,
+                        name = type.FullName.ToString()
+                    };
 
                     // Methods
                     foreach (var method in type.Methods)
@@ -133,4 +134,7 @@ public class MonoDecompiler
         }
 
     }
+
+
 }
+

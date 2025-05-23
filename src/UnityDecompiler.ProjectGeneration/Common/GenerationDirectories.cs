@@ -12,31 +12,18 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-using System.Text;
 
-
-public class ExtractedModel
+public static class GenerationDirectories
 {
-    public string name;
-    public ModelType modelType;
+    public static string projectOutputPath = Path.Combine(ExtractorSettings.outputPath, $"{GameInfo.gameName}");
 
-    public string ToString()
-    {
-        StringBuilder sb = new StringBuilder();
+    public static string assetsPath = "";
+    public static string audioPath = "";
+    public static string imagesPath = "";
 
+    public static string scenesPath = "";
+    public static string resourcesPath = "";
 
-
-        return sb.ToString();
-    }
-}
-
-public enum ModelType
-{
-    fbx,
-    // Unity uses .fbx internally | these types will most likely be converted
-    dae,
-    dxf,
-    obj,
-    pmx
-
+    public static string scriptsPath = "";
+    public static string interfacesPath = "";
 }

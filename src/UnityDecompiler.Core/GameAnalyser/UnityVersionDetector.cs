@@ -17,8 +17,7 @@ using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
 
-#pragma warning disable
-public static class UnityVersionDetector
+public static partial class UnityVersionDetector
 {
     public static string GetUnityVersion(string gameFolder)
     {
@@ -36,7 +35,7 @@ public static class UnityVersionDetector
         }
 
         string content = System.Text.Encoding.ASCII.GetString(buffer);
-        Match match = Regex.Match(content, @"20\d{2}\.\d+\.\d+[a-z]\d+");
+        Match match = VersionRegex().Match(content);
 
         if (match.Success)
         {
@@ -46,4 +45,7 @@ public static class UnityVersionDetector
 
         return null;
     }
+
+    [GeneratedRegex(@"20\d{2}\.\d+\.\d+[a-z]\d+")]
+    private static partial Regex VersionRegex();
 }

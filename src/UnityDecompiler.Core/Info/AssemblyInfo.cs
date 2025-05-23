@@ -15,7 +15,6 @@
 using System;
 using System.Collections.Generic;
 
-#pragma warning disable
 public static class AssemblyInfo
 {
     /// <summary>

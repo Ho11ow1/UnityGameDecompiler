@@ -1,0 +1,66 @@
+Assembly-CSharp.dll{
+  Script paths, Interfaces, Maybe Prefabs & Asset names
+}
+
+resources.assets{
+  Assets, Values, Directories, 
+}
+
+resources.resource{
+  Datablob
+}
+
+level*{
+  UnityVersion & small datadump
+}
+
+sharedassets*.assets{
+  Small amount of useful data & huge Datablob
+}
+
+sharedassets*.assets.resS{
+  Datablob
+}
+
+Data extracted via (Encountered errors on larger files with Parallel.ForEach):
+foreach (var file in files)
+{
+    try
+    {
+        using (var stream = File.Open($"{file}", FileMode.Open))
+        using (var reader = new BinaryReader(stream))
+        using (var sw = new StreamWriter($"data{file}.txt", true))
+        {
+            StringBuilder buffer = new StringBuilder();
+
+            while (stream.Position < stream.Length)
+            {
+                byte b = reader.ReadByte();
+
+                // Printable ASCII range
+                if (b >= 32 && b <= 126)
+                {
+                    buffer.Append((char)b);
+                }
+                else
+                {
+                    if (buffer.Length > 0)
+                    {
+                        sw.Write(buffer.ToString() + " ");
+                        buffer.Clear();
+                    }
+                }
+            }
+
+            // Flush remaining buffer
+            if (buffer.Length > 0)
+            {
+                sw.Write(buffer.ToString());
+            }
+        }
+    }
+    catch (Exception ex)
+    {
+        Console.Write($"Couldn't complete file {file}");
+    }
+}
